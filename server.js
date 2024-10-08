@@ -14,8 +14,12 @@ const server = http.createServer(app);
 //const qrurl = process.env.QR_URL || "http://localhost:3000/join";
 console.log( process.env.ALLOWED_ORIGIN,process.env.QR_URL)
 //const qrurl = process.env.QR_URL || "http://192.168.43.107:3000/join";
-const qrurl = process.env.QR_URL || "http://localhost:3000/join";
-const allowedOrigin = process.env.ALLOWED_ORIGIN || "http://localhost:3000";
+//const qrurl = process.env.QR_URL || "http://localhost:3000/join";
+//const allowedOrigin = process.env.ALLOWED_ORIGIN || "http://localhost:3000";
+
+const qrurl = process.env.QR_URL || "https://kbc-game-projects.netlify.app/join";
+const allowedOrigin = process.env.ALLOWED_ORIGIN || "https://kbc-game-projects.netlify.app";
+const localhostUrl = process.env.REACT_APP_SOCKET_URL || "https://kbc-game-backend2.onrender.com";
 
 
 
