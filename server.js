@@ -21,11 +21,13 @@ const qrurl = process.env.QR_URL || "https://kbc-game-projects.netlify.app/join"
 const allowedOrigin = process.env.ALLOWED_ORIGIN || "https://kbc-game-projects.netlify.app";
 const localhostUrl = process.env.REACT_APP_SOCKET_URL || "https://kbc-game-backend2.onrender.com";
 
-
+//QR_URL=http://localhost:3000/join
+//ALLOWED_ORIGIN=http://localhost:3000
+//PORT=5000
 
 //const url="http://192.168.43.107:3000"
 //const qrurl="http://localhost:5000/join"
-const io = socketIo(server, {
+/*const io = socketIo(server, {
     cors: {
         origin: allowedOrigin,//url,
         methods: ["GET", "POST"],
@@ -33,14 +35,27 @@ const io = socketIo(server, {
     },
     pingInterval: 25000,
     pingTimeout: 60000,
-});
+});*/
 
 
 const PORT = process.env.PORT || 5000;
 
-app.use(cors({
+/*app.use(cors({
     origin:allowedOrigin,// url,
     methods: ["GET", "POST"],
+    credentials: true
+}));*/
+const io = socketIo(server, {
+    cors: {
+        origin: ["http://localhost:3000", "https://kbc-game-projects.netlify.app"],
+        methods: ["GET", "POST"],
+        allowedHeaders: ["my-custom-header"],
+        credentials: true
+    }
+});
+
+app.use(cors({
+    origin: ["http://localhost:3000", "https://kbc-game-projects.netlify.app"],
     credentials: true
 }));
 
